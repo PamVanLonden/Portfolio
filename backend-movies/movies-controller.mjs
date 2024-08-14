@@ -7,7 +7,14 @@ import * as movies from './movies-model.mjs';
 const PORT = process.env.PORT;
 const app = express();
 app.use(express.json());  // REST needs JSON MIME type.
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
+
+const cors = require("cors");
+var whitelist = ["http://localhost:5173", "https://pamvanlonden.netlify.app"];
+var corsOptions = { origin: whitelist, credentials: true };
+app.use(cors(corsOptions));
 
 // CREATE controller ******************************************
 app.post ('/movies', (req,res) => { 

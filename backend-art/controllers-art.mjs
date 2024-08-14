@@ -8,7 +8,14 @@ const app = express();
 
 // REST needs JSON MIME type.
 app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
+
+const cors = require("cors");
+var whitelist = ["http://localhost:5173", "https://pamvanlonden.netlify.app"];
+var corsOptions = { origin: whitelist, credentials: true };
+app.use(cors(corsOptions));
 
 // CREATE art document
 app.post('/arts', (req, res) => {
