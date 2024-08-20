@@ -8,7 +8,7 @@ import { GrGallery } from "react-icons/gr";
 
 const images = [
     {
-        filepath: '/src/assets/turtle-tessellation.png',
+        filepath: '../assets/turtle-tessellation.png',
         caption: 'Tessellation made with Python Turtle.',
         title: "&copy; 2022 Van Londen"
     },

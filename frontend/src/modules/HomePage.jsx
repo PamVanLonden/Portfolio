@@ -3,6 +3,7 @@ function HomePage(){
     return (
         <>
             <h2><i><AiFillHome /></i>Home</h2>
+            <p>Did these changes deploy?</p>
             <article>
                 <h3>Career Goals</h3>
                 <p>My career goals are to...</p>
