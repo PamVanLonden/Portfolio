@@ -7,7 +7,11 @@ export default defineConfig({
   plugins: [react()],
     server: {
     proxy: {
-    '/arts': { target: 'http://localhost:5000', changeOrigin: true, secure: false,}
+    '/arts': { 
+        target: 'http://localhost:5000', 
+        changeOrigin: true, 
+        secure: false,
+      }
     }
   }
 })

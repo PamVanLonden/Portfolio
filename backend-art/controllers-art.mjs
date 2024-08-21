@@ -13,7 +13,7 @@ const app = express();
 // Serve static files from the React app
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-app.use(express.static(path.join(__dirname, '../frontend/build')));
+app.use(express.static(path.join(__dirname, '../frontend/')));
 
 // API routes
 app.get('/arts', (req, res) => {
@@ -23,7 +23,7 @@ app.get('/arts', (req, res) => {
 
 // All other routes should point to the frontend index.html
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+  res.sendFile(path.join(__dirname, '../frontend/', 'index.html'));
 });
 
 // Connect to MongoDB Atlas using the connection string from .env
