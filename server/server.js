@@ -16,8 +16,10 @@ const app = express();
 // Middleware to receive JSON
 app.use(express.json());
 
-// API endpoints  ? and route handlers
-app.use("/arts", );
+// API endpoints and route handlers
+app.get("/arts", (req, res) => {
+  res.send("GET request was sent to /arts collection");
+});
 
 // Use the client app
 app.use(express.static(path.join(__dirname, '/client/dist')));
