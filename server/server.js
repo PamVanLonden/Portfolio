@@ -30,7 +30,7 @@ mongoose
   .connect("mongodb://localhost:3002", { dbName: "mydbs" })
   .then(() => {
     // Listening to requests if DB connection is successful
-    app.listen(3002, "localhost", () => console.log("Listening to port 3002"));
+    app.listen(3002, () => console.log("Listening to port 3002"));
     console.log('Successfully connected to the Arts collection on the MongoDB Atlas Cluster.');
   })
   .catch((err) => console.log(err));
