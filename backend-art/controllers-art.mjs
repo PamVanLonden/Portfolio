@@ -39,13 +39,13 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, 'frontend/build')));
 
 // API routes
-app.get('/arts', (req, res) => {
-  res.send('The arts collection is working.');
-});
+// app.get('/arts', (req, res) => {
+//   res.send('The arts collection is working.');
+// });
 
 // All other routes should point to the frontend index.html
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
 });
 
 // Connect to MongoDB Atlas using the connection string from .env
