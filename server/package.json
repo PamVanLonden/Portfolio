@@ -1,0 +1,25 @@
+{
+  "name": "art-documents",
+  "version": "1.0.0",
+  "description": "Art logs using Mongo and Mongoose",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "server" : "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js",
+    "build": "npm install --prefix ./client && npm run build --prefix ./client && npm install",
+    "dev": "nodemon server.js"  
+  },
+  "author": "Pam Van Londen",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.9.1",
+    "rest": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
