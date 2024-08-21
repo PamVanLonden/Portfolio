@@ -11,27 +11,27 @@ import { GrGallery } from "react-icons/gr";
 // ./src, /src, ../src, /assets, ../assets
 const images = [
     {
-        filepath: './src/assets/turtle-tessellation.png',
+        filepath: '/src/assets/turtle-tessellation.png',
         caption: 'Tessellation made with Python Turtle.',
         title: "&copy; 2022 Van Londen"
     },
     {
-        filepath: './src/assets/matplotlib-temps.png',
+        filepath: '/src/assets/matplotlib-temps.png',
         caption: 'Chart of temperatures made with MatPlotLib and Python.',
         title: `&copy; 2022 Van Londen` 
     },
     {
-        filepath: './src/assets/python-drinks-shop.png',
+        filepath: '/src/assets/python-drinks-shop.png',
         caption: 'Output from a Python program that takes a drink order.',
         title: `&copy; 2022 Van Londen` 
     },
     {
-        filepath: './src/assets/turtle-benton-weather.png',
+        filepath: '/src/assets/turtle-benton-weather.png',
         caption: 'Benton County temperatures charted with Python Turtle.',
         title: `&copy; 2022 Van Londen`  
     },
     {
-        filepath: './src/assets/python-time-tasks.png',
+        filepath: '/src/assets/python-time-tasks.png',
         caption: 'Time spent on tasks programmed with Python.',
         title: `&copy; 2022 Van Londen` 
     }

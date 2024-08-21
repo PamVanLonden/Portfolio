@@ -10,13 +10,13 @@ const app = express();
 // app.use(express.json());
 
 // For vercel and netlify
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
 
-const cors = require("cors");
-var whitelist = ["http://localhost:5173", "https://pamvanlonden.netlify.app"];
-var corsOptions = { origin: whitelist, credentials: true };
-app.use(cors(corsOptions));
+// const cors = require("cors");
+// var whitelist = ["http://localhost:5173", "https://pamvanlonden.netlify.app"];
+// var corsOptions = { origin: whitelist, credentials: true };
+// app.use(cors(corsOptions));
 
 // CREATE art document
 app.post('/arts', (req, res) => {
