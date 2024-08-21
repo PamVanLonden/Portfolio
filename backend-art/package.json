@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon controllers-art.mjs",
-    "build": "echo 'No build necessary for backend'" 
+    "build": "echo 'No build necessary for backend'",
+    "dev": "nodemon controllers-art.mjs"  
   },
   "author": "Pam Van Londen",
   "license": "ISC",
