@@ -8,6 +8,7 @@
     ],
     "scripts": {
       "start": "concurrently \"npm run start --prefix backend-art\" \"npm run dev --prefix frontend\"",
+      "dev": "concurrently \"npm run dev --prefix backend-art\" \"npm run dev --prefix frontend\"",
       "build": "npm run build --prefix frontend",
       "install-all": "npm install --prefix frontend && npm install --prefix backend-art"
     },
