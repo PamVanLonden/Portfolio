@@ -17,8 +17,8 @@ const app = express();
 app.use(express.json());
 
 // API endpoints and route handlers
-app.get("/arts", (req, res) => {
-  res.send("GET request was sent to /arts collection");
+app.use("/arts", (req, res) => {
+  res.send("Arts route is working!");
 });
 
 // Use the client app
