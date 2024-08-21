@@ -1,22 +1,68 @@
-// This controller uses REST rather than Express style.
-import 'dotenv/config';
-import express from 'express';
-import * as arts from './models-art.mjs';
+// // This controller uses REST rather than Express style.
+// import 'dotenv/config';
+// import express from 'express';
+// import * as arts from './models-art.mjs';
 
-const PORT = process.env.PORT;
+// const PORT = process.env.PORT;
+// const path = require('path');
+// const app = express();
+
+// // REST needs JSON MIME type.
+// // app.use(express.json());
+// app.use(express.static(path.join(__dirname, 'frontend/build')));
+
+// // API routes
+// app.get('/arts', (req, res) => {
+//     res.send('Your API is working!');
+//   });
+  
+// // All other routes should point to the frontend index.html
+// app.get('*', (req, res) => {
+// res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+// }); 
+
+// For Render (backend deploys the frontend)
+import express from 'express';
+import path from 'path';
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+
+// Load environment variables from .env file
+dotenv.config();
+
+// Initialize express app
 const app = express();
 
-// REST needs JSON MIME type.
-// app.use(express.json());
+// Serve static files from the React app
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, 'frontend/build')));
 
-// For vercel and netlify
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
+// API routes
+app.get('/arts', (req, res) => {
+  res.send('The arts collection is working.');
+});
 
-// const cors = require("cors");
-// var whitelist = ["http://localhost:5173", "https://pamvanlonden.netlify.app"];
-// var corsOptions = { origin: whitelist, credentials: true };
-// app.use(cors(corsOptions));
+// All other routes should point to the frontend index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+});
+
+// Connect to MongoDB Atlas using the connection string from .env
+import mongoose from 'mongoose';
+
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => console.log('Successfully connected to the Arts collection on MongoDB Atlas Cluster.'))
+  .catch(err => console.error(err));
+
+// Start the server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
 // CREATE art document
 app.post('/arts', (req, res) => {
@@ -120,6 +166,6 @@ app.get('/arts/:_id', (req, res) => {
 });
 
 // REST and Express listen to the port noted above.
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}...`);
-});
+// app.listen(PORT, () => {
+//     console.log(`Server listening on port ${PORT}...`);
+// });
