@@ -29,7 +29,10 @@ app.get('*', (req,res) =>
 
 // Connecting to MongoDB using Mongoose
 mongoose
-  .connect("mongodb://localhost:3002", { dbName: "mydbs" })
+  .connect(
+    process.env.MONGODB_CONNECT_STRING,
+    { useNewUrlParser: true }
+  )
   .then(() => {
     // Listening to requests if DB connection is successful
     app.listen(3002, () => console.log("Listening to port 3002"));
