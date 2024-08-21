@@ -7,7 +7,8 @@
 import { GrGallery } from "react-icons/gr";
 
 // image filepath for vite+react deployed on netlify
-// must be perhaps ./src/assets/
+// still trying to get it correct. These don't work:
+// ./src, /src, ../src, /assets, ../assets
 const images = [
     {
         filepath: './src/assets/turtle-tessellation.png',
