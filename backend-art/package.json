@@ -1,11 +1,12 @@
 {
-  "name": "exercise-art-logs",
+  "name": "art-documents",
   "version": "1.0.0",
-  "description": "Exercise and Art logs using MERN",
+  "description": "Art logs using Mongo and Mongoose",
   "main": "controllers-art.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon controllers-art.mjs"
+    "start": "nodemon controllers-art.mjs",
+    "build": "echo 'No build necessary for backend'" 
   },
   "author": "Pam Van Londen",
   "license": "ISC",

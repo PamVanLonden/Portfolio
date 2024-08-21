@@ -1,15 +1,15 @@
 {
-    "name": "my-project",
+    "name": "portfolio-rendered",
     "version": "1.0.0",
     "private": true,
     "workspaces": [
       "frontend",
-      "backend"
+      "backend-art"
     ],
     "scripts": {
-      "start": "concurrently \"npm run start --prefix backend\" \"npm run start --prefix frontend\"",
-      "build": "npm run build --prefix frontend && npm run build --prefix backend",
-      "install-all": "npm install --prefix frontend && npm install --prefix backend"
+      "start": "concurrently \"npm run start --prefix backend-art\" \"npm run dev --prefix frontend\"",
+      "build": "npm run build --prefix frontend && npm run build --prefix backend-art",
+      "install-all": "npm install --prefix frontend && npm install --prefix backend-art"
     },
     "devDependencies": {
       "concurrently": "^7.0.0"
