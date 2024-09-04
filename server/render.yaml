@@ -7,5 +7,5 @@ services:
   - type: web
     name: server
     env: node
-    buildCommand: cd server && npm install
-    startCommand: cd server && npm start
+    buildCommand: npm install
+    startCommand: npm start
