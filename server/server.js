@@ -1,42 +1,28 @@
-import express from "express";
-import mongoose from "mongoose";
-import { artRoutes } from "routes.js";
-
-// import path from 'path';
-// import {fileURLToPath } from "url";
-
-// Resolving dirname for ES module
-// const __filename = fileURLToPath(import.meta.url)
-// const __dirname = path.dirname(__filename)
-// console.log(__dirname)
-
-// Initializing Express app
+const express = require("express");
+const mongoose = require("mongoose");
 const app = express();
+const cors = require("cors");
+require("dotenv").config();
 
-// Middleware to receive JSON
+// middleware
+const corsOptions = {
+    origin: "https://portfolio-f-c32y.onrender.com" 
+    // frontend URI (ReactJS) copied from Render account
+}
 app.use(express.json());
+app.use(cors(corsOptions));
 
-// API endpoints and route handlers
-app.use("/arts", (req, res) => {
-  res.send("Arts route is working!");
+// connect MongoDB
+mongoose.connect(process.env.MONGODB_URI).then(() => {
+    const PORT = process.env.PORT || 4000
+    app.listen(PORT, () => {
+        console.log(`Backend is Listening on PORT ${PORT}`);
+    })
+}).catch(err => {
+    console.log(err);
 });
 
-// Use the client app
-app.use("/arts", artRoutes);
-// app.use(express.static(path.join(__dirname, '/client/dist')));
-// app.get('*', (req,res) => 
-//     res.sendFile(path.join(__dirname, '/client/dist/index.html'))
-// );
-
-// Connecting to MongoDB using Mongoose
-mongoose
-  .connect(
-    process.env.MONGODB_CONNECT_STRING,
-    { useNewUrlParser: true }
-  )
-  .then(() => {
-    // Listening to requests if DB connection is successful
-    app.listen(3002, () => console.log("Listening to port 3002"));
-    console.log('Successfully connected to the Arts collection on the MongoDB Atlas Cluster.');
-  })
-  .catch((err) => console.log(err));
+// route
+app.get("/", (req, res) => {
+    res.status(201).json({message: "Connected to MongoDB Atlas Cluster for Arts Collection"});
+});

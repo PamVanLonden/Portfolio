@@ -37,6 +37,14 @@ function App() {
   const [movie, setMovie] = useState([]);
   const [exercise, setExercise] = useState([]);
   const [painting, setPainting] = useState([]);
+  const [message, setMessage] = useState("");
+
+  // Fetching message from backend on mount
+  useEffect(() => {
+    fetch("http://localhost:4000")
+      .then((res) => res.json())
+      .then((data) => setMessage(data.message));
+  }, []);
 
   return (
     <div>
@@ -83,6 +91,7 @@ function App() {
         <footer>
         <Slogan /> 
         <p>&copy; {new Date().getFullYear()} Pam Van Londen </p>
+        <p>{message}</p>
         </footer>
 
     </div>
