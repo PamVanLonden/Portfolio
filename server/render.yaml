@@ -3,7 +3,7 @@ services:
     name: client
     env: node
     buildCommand: cd client && npm install && npm run build
-    startCommand: cd client && npm start
+    startCommand: cd client && npm run serve
   - type: web
     name: server
     env: node
