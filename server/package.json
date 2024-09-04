@@ -5,10 +5,10 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "concurrently \"npm run start --prefix server\" \"npm run build --prefix client\"",
+    "start": "npm run start --prefix server",
     "build": "npm run build --prefix client",
     "dev": "concurrently \"npm run dev --prefix server\" \"npm start --prefix client\""
-  },
+    },
   "author": "Pam Van Londen",
   "license": "ISC",
   "dependencies": {
