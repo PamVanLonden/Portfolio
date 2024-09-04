@@ -4,7 +4,10 @@
 # Commit changes to GIT to redeploy server/backend and client/frontend
 
 # Tried these deployment instructions
-<!-- 
+<!-- third try
+https://coding-boot-camp.github.io/full-stack/render/deploy-mern-stack-with-render-guide
+
+second try
 https://www.youtube.com/watch?v=ZsFwpjFmpFQ Read the comments for server path
 # https://github.com/JonVadar/YouTube_videos/tree/main/MERN%20stack 
 -->

@@ -1,14 +1,14 @@
 import express from "express";
 import mongoose from "mongoose";
-import {} from './models-art.mjs';
+import { artRoutes } from "routes.js";
 
-import path from 'path';
-import {fileURLToPath } from "url";
+// import path from 'path';
+// import {fileURLToPath } from "url";
 
 // Resolving dirname for ES module
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-console.log(__dirname)
+// const __filename = fileURLToPath(import.meta.url)
+// const __dirname = path.dirname(__filename)
+// console.log(__dirname)
 
 // Initializing Express app
 const app = express();
@@ -22,10 +22,11 @@ app.use("/arts", (req, res) => {
 });
 
 // Use the client app
-app.use(express.static(path.join(__dirname, '/client/dist')));
-app.get('*', (req,res) => 
-    res.sendFile(path.join(__dirname, '/client/dist/index.html'))
-);
+app.use("/arts", artRoutes);
+// app.use(express.static(path.join(__dirname, '/client/dist')));
+// app.get('*', (req,res) => 
+//     res.sendFile(path.join(__dirname, '/client/dist/index.html'))
+// );
 
 // Connecting to MongoDB using Mongoose
 mongoose
