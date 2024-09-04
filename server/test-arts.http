@@ -1,6 +1,6 @@
 ### Update port to match .env file or controller file.
 ### Request 1: Create an artwork
-POST http://localhost:5000/arts HTTP/1.1
+POST http://localhost:4000/arts HTTP/1.1
 content-type: application/json
 
 {
@@ -16,7 +16,7 @@ content-type: application/json
 }
 
 ### Request 2: Create another artwork
-POST http://localhost:5000/arts HTTP/1.1
+POST http://localhost:4000/arts HTTP/1.1
 content-type: application/json
 
 {
@@ -33,7 +33,7 @@ content-type: application/json
 }
 
 ### Request 3: Create an artwork
-POST http://localhost:5000/arts HTTP/1.1
+POST http://localhost:4000/arts HTTP/1.1
 content-type: application/json
 
 {
@@ -50,7 +50,7 @@ content-type: application/json
 }
 
 ### Request 4: Create another artwork
-POST http://localhost:5000/arts HTTP/1.1
+POST http://localhost:4000/arts HTTP/1.1
 content-type: application/json
 
 {
@@ -67,12 +67,12 @@ content-type: application/json
 
 
 ### Request 5: Retrieve should return the 4 artworks.
-GET http://localhost:5000/arts HTTP/1.1
+GET http://localhost:4000/arts HTTP/1.1
 content-type: application/json
 
 
 ### Request 6: UPDATE the last one.
-PUT http://localhost:5000/arts/64d6666e0333ff0d151b7a14 HTTP/1.1
+PUT http://localhost:4000/arts/64d6666e0333ff0d151b7a14 HTTP/1.1
 content-type: application/json
 
 {
@@ -88,9 +88,9 @@ content-type: application/json
 }
 
 ### Request 7: Verify that the previous update worked
-GET http://localhost:5000/arts/64d66548d44d6efb60874d9e HTTP/1.1
+GET http://localhost:4000/arts/64d66548d44d6efb60874d9e HTTP/1.1
 
 
 
 ### Request 20: Delete for non-existent ID. 404 status code
-DELETE http://localhost:5000/arts/64d66548d44d6efb60874d9e HTTP/1.1
+DELETE http://localhost:4000/arts/64d66548d44d6efb60874d9e HTTP/1.1
