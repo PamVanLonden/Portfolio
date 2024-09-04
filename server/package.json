@@ -5,13 +5,9 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "server": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "install-server": "cd server && npm install",
-    "start-server": "cd server && node app.js",
-    "install-client": "cd client && npm install",
-    "build-client": "cd client && npm run build",
-    "start-client": "cd client && npm run start"
+    "start": "concurrently \"npm run start --prefix server\" \"npm run build --prefix client\"",
+    "build": "npm run build --prefix client",
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm start --prefix client\""
   },
   "author": "Pam Van Londen",
   "license": "ISC",
@@ -23,6 +19,7 @@
     "rest": "^2.0.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "concurrently": "^6.2.0"
   }
 }
