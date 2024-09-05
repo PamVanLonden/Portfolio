@@ -4,7 +4,11 @@
 # Commit changes to GIT to redeploy server/backend and client/frontend
 
 # Tried these deployment instructions
-<!-- third try
+<!-- 
+https://medium.com/@vmaineng/how-to-deploy-mern-full-stack-to-render-f7ab380660b6
+
+
+third try
 https://coding-boot-camp.github.io/full-stack/render/deploy-mern-stack-with-render-guide
 
 second try
@@ -28,7 +32,7 @@ https://www.youtube.com/watch?v=ZsFwpjFmpFQ Read the comments for server path
 3. Push your MERN stack project to a GitHub repository.
 4. at Render:
     1. Sign up using your GitHub account.
-    2. Create a New Web Service:
+    2. Create a New Web Service (backend):
     3. Connect your GitHub repository. Branch is main.
     4. Update settings
         main branch
@@ -39,4 +43,5 @@ https://www.youtube.com/watch?v=ZsFwpjFmpFQ Read the comments for server path
     6. Deploy.
     7. Clear cache and deploy when making changes. 
 
+    8. Create new Static Site (frontend)
 -->
