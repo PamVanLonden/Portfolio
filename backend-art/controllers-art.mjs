@@ -6,6 +6,14 @@ import mongoose from 'mongoose';
 import * as arts from './models-art.mjs';
 import { fileURLToPath } from 'url';
 
+import cors from 'cors';
+app.use(cors({
+  origin: 'https://portfolio-9sv1.onrender.com/', // Replace with your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
+
+
 // const PORT = process.env.PORT;
 
 // Load environment variables from .env file
