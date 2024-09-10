@@ -8,7 +8,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-     '/arts': { target: 'https://portfolio-arts.onrender.com/'}
+     '/arts': { target: 'https://portfolio-arts.onrender.com/'},
+      changeOrigin: true
     }
   }
 })
