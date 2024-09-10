@@ -8,7 +8,6 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-     '/exercises': { target: 'http://localhost:3001'},
      '/arts':       { target: 'http://localhost:3002'}
     }
   }
