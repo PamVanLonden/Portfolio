@@ -10,7 +10,7 @@ import cors from 'cors';
  
 
 // Load environment variables from .env file
-dotenv.config()
+// dotenv.config()
 
 const PORT = process.env.PORT || 4000;
 
