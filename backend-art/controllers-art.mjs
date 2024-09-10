@@ -35,9 +35,9 @@ app.use(cors({
 
 
 // API routes
-app.get('/arts', (req, res) => {
-    res.send('The Arts collection at the MongoDB Atlas Cluster is working.');
-  });
+// app.get('/arts', (req, res) => {
+//     res.send('The Arts collection at the MongoDB Atlas Cluster is working.');
+//   });
 
 // All other routes should point to the frontend index.html
 // app.get('*', (req, res) => {
