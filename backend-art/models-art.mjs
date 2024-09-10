@@ -7,16 +7,16 @@ mongoose.connect(
     process.env.MONGODB_CONNECT_STRING,
     { useNewUrlParser: true }
 );
-// const db = mongoose.connection;
+const db = mongoose.connection;
 
 // Confirm that the database has connected and print a message in the console.
-// db.once("open", (err) => {
-//     if(err){
-//         res.status(500).json({ error: 'Unique and specific error message.' });
-//     } else  {
-//         console.log('Unique and specific success message.');
-//     }
-// });
+db.once("open", (err) => {
+    if(err){
+        res.status(500).json({ error: 'Unique and specific error message.' });
+    } else  {
+        console.log('Unique and specific success message.');
+    }
+});
 
 
 
