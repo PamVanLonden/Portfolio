@@ -7,14 +7,7 @@ import * as arts from './models-art.mjs';
 import { fileURLToPath } from 'url';
 
 import cors from 'cors';
-app.use(cors({
-  origin: 'https://portfolio-9sv1.onrender.com/', // Replace with your frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
-}));
-
-
-// const PORT = process.env.PORT;
+ 
 
 // Load environment variables from .env file
 dotenv.config()
@@ -22,15 +15,19 @@ dotenv.config()
 // Initialize express app
 const app = express();
 
+app.use(cors({
+  origin: 'https://portfolio-9sv1.onrender.com/', // Replace with your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
+
 // Serve static files from the React app
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, 'frontend/dist')));
 
-
 // REST needs JSON MIME type.
-// app.use(express.json());
-
+app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
@@ -38,12 +35,6 @@ mongoose.connect(process.env.MONGO_URI, {
   })
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.error(err));
-  
-  // Start the server
-  const PORT = process.env.PORT || 3002;
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-  });
 
 
 // API routes
@@ -157,7 +148,8 @@ app.get('/arts/:_id', (req, res) => {
         });
 });
 
-// REST and Express listen to the port noted above.
+// Start the server
+const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}...`);
+  console.log(`Server is running on port ${PORT}`);
 });
