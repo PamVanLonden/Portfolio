@@ -9,11 +9,12 @@ function Navigation() {
             <Link to="/gallery">Gallery</Link>
             <Link to="/pets">Order</Link>
             <Link to="/staff">Staff</Link>
-            <Link to="/moviesPage">Movies</Link>
-            <Link to="/exercises">Exercises</Link>
             <Link to="/paintings">Art</Link>
-
-            
+            {/*             
+            <Link to="/moviesPage">Movies</Link>
+            <Link to="/exercises">Exercises</Link> 
+            */}
+        
             {/* <Link to="/counter">Counter</Link> */}
             {/* <Link to="/contact">Contact</Link> */}
             
