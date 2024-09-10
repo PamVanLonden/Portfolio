@@ -11,7 +11,7 @@ app.use(express.json());
 
 
 // CREATE art document
-app.post('/arts', (req, res) => {
+app.post('https://portfolio-arts.onrender.com/arts', (req, res) => {
     arts.createArt(
         req.body.imgurl, 
         req.body.title, 
@@ -34,7 +34,7 @@ app.post('/arts', (req, res) => {
 });
 
 // RETRIEVE all art documents
-app.get('/arts', (req, res) => {
+app.get('https://portfolio-arts.onrender.com/arts', (req, res) => {
     arts.findArt()
     .then(art => { 
         if (art !== null) {
@@ -52,7 +52,7 @@ app.get('/arts', (req, res) => {
 });
 
 // RETRIEVE by ID controller
-app.get('/arts/:_id', (req, res) => {
+app.get('https://portfolio-arts.onrender.com/arts/:_id', (req, res) => {
     arts.findArtById(req.params._id)
     .then(art => { 
         if (art !== null) {
@@ -70,7 +70,7 @@ app.get('/arts/:_id', (req, res) => {
 });
 
 // UPDATE art
- app.put('/arts/:_id', (req, res) => {
+ app.put('https://portfolio-arts.onrender.com/arts/:_id', (req, res) => {
      // Notice use of params.id
      arts.replaceArt(
         req.params._id, 
@@ -95,7 +95,7 @@ app.get('/arts/:_id', (req, res) => {
 });
 
 // DELETE art
- app.delete('/arts/:_id', (req, res) => {
+ app.delete('https://portfolio-arts.onrender.com/arts/:_id', (req, res) => {
     arts.deleteArtById(req.params._id)
         .then(deletedCount => {
             if (deletedCount === 1) {
