@@ -9,7 +9,8 @@ export default defineConfig({
   server: {
     proxy: {
      '/arts': { target: 'https://portfolio-arts.onrender.com/'},
-      changeOrigin: true
+      changeOrigin: true,
+      rewrite: (path) => path.replace(/^\/arts/, '')
     }
   }
 })
