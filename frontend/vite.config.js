@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-     '/arts':       { target: 'http://localhost:3002'}
+     '/arts': { target: 'https://portfolio-arts.onrender.com/arts'}
     }
   }
 })
