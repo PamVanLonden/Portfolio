@@ -1,17 +1,55 @@
 // This controller uses REST rather than Express style.
 import 'dotenv/config';
 import express from 'express';
-import * as arts from './models-art.mjs';
+import mongoose from 'mongoose';
 
-const PORT = process.env.PORT;
+import * as arts from './models-art.mjs';
+import { fileURLToPath } from 'url';
+
+// const PORT = process.env.PORT;
+
+// Load environment variables from .env file
+dotenv.config()
+
+// Initialize express app
 const app = express();
 
-// REST needs JSON MIME type.
-app.use(express.json());
+// Serve static files from the React app
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, 'frontend/dist')));
 
+
+// REST needs JSON MIME type.
+// app.use(express.json());
+
+
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => console.error(err));
+  
+  // Start the server
+  const PORT = process.env.PORT || 3002;
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+
+
+// API routes
+app.get('/arts', (req, res) => {
+    res.send('The Arts collection at the MongoDB Atlas Cluster is working.');
+  });
+
+// All other routes should point to the frontend index.html
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend/dist', 'index.html'));
+  });
 
 // CREATE art document
-app.post('https://portfolio-arts.onrender.com/arts', (req, res) => {
+app.post('/arts', (req, res) => {
     arts.createArt(
         req.body.imgurl, 
         req.body.title, 
@@ -34,7 +72,7 @@ app.post('https://portfolio-arts.onrender.com/arts', (req, res) => {
 });
 
 // RETRIEVE all art documents
-app.get('https://portfolio-arts.onrender.com/arts', (req, res) => {
+app.get('/arts', (req, res) => {
     arts.findArt()
     .then(art => { 
         if (art !== null) {
@@ -52,7 +90,7 @@ app.get('https://portfolio-arts.onrender.com/arts', (req, res) => {
 });
 
 // RETRIEVE by ID controller
-app.get('https://portfolio-arts.onrender.com/arts/:_id', (req, res) => {
+app.get('/arts/:_id', (req, res) => {
     arts.findArtById(req.params._id)
     .then(art => { 
         if (art !== null) {
@@ -70,7 +108,7 @@ app.get('https://portfolio-arts.onrender.com/arts/:_id', (req, res) => {
 });
 
 // UPDATE art
- app.put('https://portfolio-arts.onrender.com/arts/:_id', (req, res) => {
+ app.put('/arts/:_id', (req, res) => {
      // Notice use of params.id
      arts.replaceArt(
         req.params._id, 
@@ -95,7 +133,7 @@ app.get('https://portfolio-arts.onrender.com/arts/:_id', (req, res) => {
 });
 
 // DELETE art
- app.delete('https://portfolio-arts.onrender.com/arts/:_id', (req, res) => {
+ app.delete('/arts/:_id', (req, res) => {
     arts.deleteArtById(req.params._id)
         .then(deletedCount => {
             if (deletedCount === 1) {
