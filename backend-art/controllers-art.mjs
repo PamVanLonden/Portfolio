@@ -20,9 +20,9 @@ app.use(cors({
 }));
 
 // Serve static files from the React app
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-app.use(express.static(path.join(__dirname, 'frontend/dist')));
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
+// app.use(express.static(path.join(__dirname, 'frontend/dist')));
 
 
 
@@ -40,9 +40,9 @@ app.get('/arts', (req, res) => {
   });
 
 // All other routes should point to the frontend index.html
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend/dist', 'index.html'));
-  });
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'frontend/dist', 'index.html'));
+//   });
 
 // CREATE art document
 app.post('/arts', (req, res) => {
