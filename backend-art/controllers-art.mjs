@@ -1,21 +1,17 @@
 // This controller uses REST rather than Express style.
 import 'dotenv/config';
 import express from 'express';
-import mongoose from 'mongoose';
 
 import * as arts from './models-art.mjs';
-import { fileURLToPath } from 'url';
-
 import cors from 'cors';
- 
-
-// Load environment variables from .env file
-// dotenv.config()
 
 const PORT = process.env.PORT || 4000;
 
 // Initialize express app
 const app = express();
+
+// REST needs JSON MIME type.
+app.use(express.json());
 
 app.use(cors({
   origin: 'https://portfolio-9sv1.onrender.com/', // Replace with your frontend URL
@@ -28,8 +24,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, 'frontend/dist')));
 
-// REST needs JSON MIME type.
-app.use(express.json());
+
 
 // mongoose.connect(process.env.MONGO_URI, {
 //     useNewUrlParser: true,
