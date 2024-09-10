@@ -12,6 +12,8 @@ import cors from 'cors';
 // Load environment variables from .env file
 dotenv.config()
 
+const PORT = process.env.PORT || 3002;
+
 // Initialize express app
 const app = express();
 
@@ -149,7 +151,6 @@ app.get('/arts/:_id', (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
